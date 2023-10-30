@@ -56,6 +56,7 @@ if(isNaN(monto)|| monto <= 0 || monto > saldo){
         alert(`La cuenta de destino ${cuentaDestino} no es valida, por favor reviselo`);
         return
     }
+        saldo -=monto;
         alert(`Se han depositado ${monto} € en la cuenta ${cuentaDestino} correctamente`);
         saldo -=monto;
         ActualizarSaldoTemplate()
