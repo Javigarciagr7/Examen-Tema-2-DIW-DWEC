@@ -1,3 +1,9 @@
+/*
+**Autor**: Javier García Rodríguez
+
+**GitHub**: https://github.com/Javigarciagr7/Examen-Tema-2-DIW-DWEC.git
+*/
+
 window.addEventListener("load", iniciarsesion);
 
 //Variables declaradas
@@ -51,7 +57,7 @@ const monto = parseFloat(prompt("Introduzca una cantidad a transferir: "));
 if(isNaN(monto)|| monto <= 0 || monto > saldo){
     alert("Valor invalido. Intentelo de nuevo")
 } else{
-    const cuentaDestino = prompt("Ingrese una cuentaDestino valida: ");
+    const cuentaDestino = prompt("Ingrese una cuenta de destino valida: ");
     if(!validarIBAN(cuentaDestino)){
         alert(`La cuenta de destino ${cuentaDestino} no es valida, por favor reviselo`);
         return
