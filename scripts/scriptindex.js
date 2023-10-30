@@ -1,9 +1,11 @@
 window.addEventListener("load", iniciarsesion);
 
+//Variables declaradas
 let saldo = 1000;
 const PIN_correcto = "123";
 let intentosrestantes = 3;
 
+//Enlazamos botones con sus respectivos id´s
 depositarbtn = document.getElementById("depositar");
 retirarbtn = document.getElementById("retirar");
 transferirbtn = document.getElementById("transferir");
@@ -11,6 +13,7 @@ salirbtn = document.getElementById("salir");
 cambiarbtn = document.getElementById("cambiar")
 saldoTemplate = document.getElementById("saldo");
 
+//Añadimos eventos de click a los botones
 depositarbtn.addEventListener("click", depositar);
 retirarbtn.addEventListener("click", retirar);
 transferirbtn.addEventListener("click", transferir);
@@ -20,6 +23,7 @@ alert("Inicio de sesión finalizado. Vuelva pronto")
 window.location.replace("/templates/cajerodespedida.html");
 });
 
+//Función para depositar dinero
 function depositar(){
 const deposito = parseFloat(prompt("Introduzca una cantidad a depositar: "));
 if(isNaN(deposito) || deposito <= 0){
@@ -30,6 +34,7 @@ if(isNaN(deposito) || deposito <= 0){
     ActualizarSaldoTemplate();
 }};
 
+//Función para retirar dinero
 function retirar(){
     const retiro = parseFloat(prompt("Introduzca una cantidad a retirar: "));
     if(isNaN(retiro) || retiro <= 0 || retiro > saldo){
@@ -40,6 +45,7 @@ function retirar(){
         ActualizarSaldoTemplate()
 }};
 
+//Función para transferir dinero
 function transferir (){
 const monto = parseFloat(prompt("Introduzca una cantidad a transferir: "));
 if(isNaN(monto)|| monto <= 0 || monto > saldo){
@@ -48,7 +54,7 @@ if(isNaN(monto)|| monto <= 0 || monto > saldo){
     const cuentaDestino = prompt("Ingrese una cuentaDestino valida: ");
     if(!validarIBAN(cuentaDestino)){
         alert(`La cuenta de destino ${cuentaDestino} no es valida, por favor reviselo`);
-        return;
+        return
     }
         alert(`Se han depositado ${monto} € en la cuenta ${cuentaDestino} correctamente`);
         saldo -=monto;
@@ -56,6 +62,7 @@ if(isNaN(monto)|| monto <= 0 || monto > saldo){
     }
 };
 
+//Función para iniciar sesión
 function iniciarsesion(){
     let pin = prompt("Introduzca un PIN: ");
     while (pin !== PIN_correcto && intentosrestantes > 1){
@@ -71,19 +78,22 @@ function iniciarsesion(){
         window.location.replace("/templates/cajerobloqueado.html");
 }};
 
+//Función para cambiar contraseña
 function cambiarcontrasena(){
     const nuevacontrasena = prompt("Ingrese la nueva contraseña: ");
-    if(nuevacontrasena === PIN_correcto || nuevacontrasena ==null){
+    if(nuevacontrasena === PIN_correcto || nuevacontrasena === null){
         alert(`La contraseña no es valida.`)
     } else{
         (nuevacontrasena === PIN_correcto);
         alert(`La contraseña ha sido modificada.`)
 }};
 
+//Función para actualizar saldo
 function ActualizarSaldoTemplate(){
 saldoTemplate.innerText = `${saldo} €`;
 };
 
+//Función para validar IBAN
 function validarIBAN(iban){
    var regularExpresion = `/^(ES\d{22}$/`;
    return regularExpresion.test(iban);
