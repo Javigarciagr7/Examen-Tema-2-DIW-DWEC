@@ -8,11 +8,13 @@ depositarbtn = document.getElementById("depositar");
 retirarbtn = document.getElementById("retirar");
 transferirbtn = document.getElementById("transferir");
 salirbtn = document.getElementById("salir");
+cambiarbtn = document.getElementById("cambiar")
 saldoTemplate = document.getElementById("saldo");
 
 depositarbtn.addEventListener("click", depositar);
 retirarbtn.addEventListener("click", retirar);
 transferirbtn.addEventListener("click", transferir);
+cambiarbtn.addEventListener("click", cambiarcontrasena);
 salirbtn.addEventListener("click", () => {
 alert("Inicio de sesión finalizado. Vuelva pronto")
 window.location.replace("/templates/cajerodespedida.html");
@@ -39,8 +41,8 @@ function retirar(){
 }};
 
 function transferir (){
-const transferir = parseFloat(prompt("Introduzca una cantidad a transferir: "));
-if(isNaN(transferir)|| transferir <= 0 || transfeir > saldo){
+const monto = parseFloat(prompt("Introduzca una cantidad a transferir: "));
+if(isNaN(monto)|| monto <= 0 || monto > saldo){
     alert("Valor invalido. Intentelo de nuevo")
 } else{
     const cuentaDestino = prompt("Ingrese una cuentaDestino valida: ");
@@ -48,10 +50,9 @@ if(isNaN(transferir)|| transferir <= 0 || transfeir > saldo){
         alert(`La cuenta de destino ${cuentaDestino} no es valida, por favor reviselo`);
         return
     }
-    {
         alert(`Se han depositado ${monto} € en la cuenta ${cuentaDestino} correctamente`);
         ActualizarSaldoTemplate()
-    }}
+    }
 };
 
 function iniciarsesion(){
@@ -67,6 +68,15 @@ function iniciarsesion(){
     } else{
         alert(`Ha superado el numero de intentos. Cajero Bloqueado`);
         window.location.replace("/templates/cajerobloqueado.html");
+}};
+
+function cambiarcontrasena(){
+    const nuevacontrasena = prompt("Ingrese la nueva contraseña: ");
+    if(nuevacontrasena === PIN_correcto || nuevacontrasena !==null){
+        alert(`La contraseña no es valida.`)
+    } else{
+        nuevacontrasena === PIN_correcto;
+        alert(`La contraseña ha sido modificada.`)
 }};
 
 function ActualizarSaldoTemplate(){
