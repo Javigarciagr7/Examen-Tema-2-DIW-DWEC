@@ -95,6 +95,6 @@ saldoTemplate.innerText = `${saldo} €`;
 
 //Función para validar IBAN
 function validarIBAN(iban){
-   var regularExpresion = `/^(ES\d{22}$/`;
+   var regularExpresion = /^(ES\d{22})$/;
    return regularExpresion.test(iban);
 };
