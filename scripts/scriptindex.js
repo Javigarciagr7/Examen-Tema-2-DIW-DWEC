@@ -48,9 +48,10 @@ if(isNaN(monto)|| monto <= 0 || monto > saldo){
     const cuentaDestino = prompt("Ingrese una cuentaDestino valida: ");
     if(!validarIBAN(cuentaDestino)){
         alert(`La cuenta de destino ${cuentaDestino} no es valida, por favor reviselo`);
-        return
+        return;
     }
         alert(`Se han depositado ${monto} € en la cuenta ${cuentaDestino} correctamente`);
+        saldo -=monto;
         ActualizarSaldoTemplate()
     }
 };
@@ -72,10 +73,10 @@ function iniciarsesion(){
 
 function cambiarcontrasena(){
     const nuevacontrasena = prompt("Ingrese la nueva contraseña: ");
-    if(nuevacontrasena === PIN_correcto || nuevacontrasena !==null){
+    if(nuevacontrasena === PIN_correcto || nuevacontrasena ==null){
         alert(`La contraseña no es valida.`)
     } else{
-        nuevacontrasena === PIN_correcto;
+        (nuevacontrasena === PIN_correcto);
         alert(`La contraseña ha sido modificada.`)
 }};
 

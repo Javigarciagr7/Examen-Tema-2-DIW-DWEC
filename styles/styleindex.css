@@ -3,9 +3,8 @@ body{
 }
 
 .container{
-background-color: aquamarine;
-background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgb(10, 64, 124) 100%);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+background-color:rgb(31, 63, 106);
+background: radial-gradient(circle, rgb(232, 205, 217) 0%, rgb(31, 63, 106) 85%);
 max-width: 600px;
 border-radius: 5px;
 margin: 0 auto;
@@ -14,13 +13,13 @@ margin-top: 5%;
 }
 
 h1{
-    font-size: 35px;
+    font-size: 40px;
     font-weight: bold;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 p{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size:18px;
 }
 
@@ -39,7 +38,7 @@ margin-right: 7%;
 }
 
 button{
-    background-color: coral;
+    background-color: rgb(31, 63, 106);
     color:white;
     cursor: pointer;
     padding: 5px 10px;
@@ -47,5 +46,5 @@ button{
 }
 
 button:hover{
-background-color: coral;
+    background-color: rgb(31, 63, 106);
 }
